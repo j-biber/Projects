@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="root">
+        <ul class="post-list">
+        </ul>
+
+        <div class="error-box"></div>
+    </div>
+
+
+
+    <script type="module">
+        import { init } from './js/app.js'
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            console.log("DOM fully loaded and parsed");
+            console.log("Init app");
+
+            init();
+        });
+    </script>
+</body>
+
+</html>
