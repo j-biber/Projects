@@ -1,0 +1,29 @@
+.media {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 10px;
+}
+main {
+    width: 70vw;
+    margin: 0 auto;
+}
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+img {
+    border-radius: 50%;
+    width: 60px;
+}
+
+header, footer {
+    background-color: rgb(34, 195, 147);
+    text-align: center;
+    color: beige;
+}
+footer {
+    height: 5vh;
+}

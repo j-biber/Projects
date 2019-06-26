@@ -1,0 +1,35 @@
+import Post from '../models/Post';
+import { API_ENDPOINT } from '../shared/constants';
+
+class PostService {
+
+    fetchPosts = () => {
+        const POSTS_API = `${API_ENDPOINT}/posts`;
+
+        return fetch(POSTS_API)
+            .then(response => response.json())
+            .then(posts => posts.map(post => new Post(post)))
+    }
+
+    fetchSinglePost = (postId) => {
+        const POST_API = `${API_ENDPOINT}/posts/${postId}`;
+
+        return fetch(POST_API)
+            .then(response => response.json())
+            .then(post => new Post(post))
+    }
+
+    fetchAuthorRelatedPost = (userId) => {
+        const RELATED_POSTS_API = `${API_ENDPOINT}/users/${userId}/posts`;
+
+        return fetch(RELATED_POSTS_API)
+            .then(response => response.json())
+            .then(relatedPosts => relatedPosts.map(post => new Post(post)))
+            .then(posts => posts.slice(0, 5))
+
+    }
+
+}
+
+
+export const postService = new PostService();

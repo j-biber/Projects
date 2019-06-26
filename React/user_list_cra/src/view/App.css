@@ -1,0 +1,44 @@
+.card {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+  width: 18rem;
+}
+main {
+  width: 70vw;
+  margin: 0 auto;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 60px 0;
+}
+
+.username {
+  display: inline-block;
+  background-color: #00000054;
+  padding: 4px;
+  position: absolute;
+  bottom: 110px;
+  color : beige;
+  font-weight: bold;
+  letter-spacing: 10px;
+  padding-left: 11px;
+}
+
+header, footer {
+  background-color: rgb(34, 195, 147);
+  text-align: center;
+  color: beige;
+}
+footer {
+  height: 5vh;
+}
