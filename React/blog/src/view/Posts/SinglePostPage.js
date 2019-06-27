@@ -25,6 +25,12 @@ class SinglePostPage extends Component {
         this.fetchPost();
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.match.url !== prevProps.match.url) {
+            this.fetchPost();
+        }
+    }
+
     render() {
         const { post } = this.state;
 
@@ -35,6 +41,7 @@ class SinglePostPage extends Component {
         }
 
         const { postId, authorId, title, body } = this.state.post;
+        // const { authorId } = this.props.match.params.authorId;
 
         return (
             <>

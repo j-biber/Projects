@@ -12,6 +12,7 @@ class PostAuthor extends Component {
 
     fetchAuthor = () => {
         const id = this.props.authorId;
+        console.log(id)
         authorService.fetchSingleAuthor(id)
             .then(author => this.setState({
                 author

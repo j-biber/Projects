@@ -11,14 +11,21 @@ class RelatedPosts extends Component {
     }
 
     fetchPosts = () => {
-        postService.fetchAuthorRelatedPost(this.props.authorId)
-            .then(listOfRelatedPost => this.setState({
-                posts: listOfRelatedPost
+        const { authorId, postId } = this.props;
+        postService.fetchAuthorRelatedPost(authorId)
+            .then(listOfRelatedPosts => this.setState({
+                posts: listOfRelatedPosts.filter(post => post.postId !== postId)
             }))
     }
 
     componentDidMount() {
         this.fetchPosts();
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props !== prevProps) {
+            this.fetchPosts();
+        }
     }
 
     render() {
@@ -36,7 +43,7 @@ class RelatedPosts extends Component {
             <article className="related-posts">
                 <h2> more posts from same author</h2>
                 <ul>
-                    {posts.map(({ title, body, authorId, postId }) => <li>
+                    {posts.map(({ title, body, authorId, postId }, index) => <li key={index}>
                         <Link to={`/posts/${authorId}/${postId}`}><span className="bold">{title.slice(0, 15)}</span> - {body.slice(0, 70)}</Link>
                     </li>)}
 

@@ -29,6 +29,15 @@ class PostService {
 
     }
 
+    postData = (data) => {
+        const POSTS_API = `${API_ENDPOINT}/posts`;
+
+        return fetch(POSTS_API, {
+            method: 'POST',
+            body: JSON.stringify(data),
+        })
+    }
+
 }
 
 
